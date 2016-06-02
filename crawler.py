@@ -6,7 +6,7 @@ import re
 def get_url(query):
         qarr = query.split()
         q = [x for x in qarr]
-        query = "http://duckduckgo.com/html/?q=" + '+'.join(q)
+        query = "http://timesofindia.indiatimes.com/topic/" +join(q)
         return query
 
 def get_links(query):
@@ -15,7 +15,7 @@ def get_links(query):
         data = site.read()
         the_links = []
         parsed = BeautifulSoup(data)
-        for links in parsed.findAll('div', {'class': re.compile('links_main*')}):
+        for links in parsed.findAll('div', {'class': re.compile("speednews-listing")}):
                 the_links.append(links.a['href'])
         return the_links
 
